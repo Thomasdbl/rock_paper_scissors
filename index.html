@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rock paper scissors</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    // Computer randomly returns "rock", "paper" or "scissors" //
+
+    function computerPlay(){
+
+      let randomNumber = Math.floor((Math.random() * 3) + 1);
+      console.log(randomNumber);
+
+      if (randomNumber === 1) {
+        console.log("ROCK");
+        return "ROCK"
+      }
+      else if (randomNumber === 2) {
+        console.log("PAPER");
+        return "PAPER"
+      }
+      else {
+        console.log("SCISSORS");
+        return "SCISSORS"
+      }
+    }
+
+    // Write a function that plays a single round of Rock Paper Scissors. //
+    // The function should take two parameters - the playerSelection and computerSelection - //
+    // and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" //
+    // make your function case insensitive (so users can input rock, ROCK, RocK or any other variation)//
+
+    function playRound(playerSelection, computerSelection){
+
+      if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+        return "You win! Rock beats Scissors";
+      }else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+        return "You win! Paper beats Rock";
+      }else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+        return "You win! Scissors beats Paper";
+      }else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+        return "You loose! Paper beats Rock";
+      }else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+        return "You loose! Scissors beats Paper";
+      }else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+        return "You loose! Rock beats Scissors";
+      }else {
+        return "It's a tie!";
+      }
+    }
+
+
+    let playerSelection = // to do //;
+    let computerSelection = computerPlay();
+
+
+    console.log(playRound(playerSelection, computerSelection));
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
