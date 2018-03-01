@@ -8,7 +8,7 @@
 
     <script type="text/javascript">
 
-    // Computer randomly returns "rock", "paper" or "scissors" //
+// Computer randomly returns "rock", "paper" or "scissors" //
 
     function computerPlay(){
 
@@ -19,51 +19,93 @@
         console.log("ROCK");
         return "ROCK"
       }
-      else if (randomNumber === 2) {
+        else if (randomNumber === 2) {
         console.log("PAPER");
         return "PAPER"
       }
-      else {
+        else {
         console.log("SCISSORS");
         return "SCISSORS"
       }
     }
 
-    // Write a function that plays a single round of Rock Paper Scissors. //
-    // The function should take two parameters - the playerSelection and computerSelection - //
-    // and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock" //
-    // make your function case insensitive (so users can input rock, ROCK, RocK or any other variation)//
+// Write a function that plays a single round of Rock Paper Scissors.
+// The function should take two parameters - the playerSelection and computerSelection -
+// and then return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+// make your function case insensitive (so users can input rock, ROCK, RocK or any other variation)
 
     function playRound(playerSelection, computerSelection){
 
-      if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
+      if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
         return "You win! Rock beats Scissors";
-      }else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
+      }else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
         return "You win! Paper beats Rock";
-      }else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+      }else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
         return "You win! Scissors beats Paper";
-      }else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+      }else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
         return "You loose! Paper beats Rock";
-      }else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+      }else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
         return "You loose! Scissors beats Paper";
-      }else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+      }else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
         return "You loose! Rock beats Scissors";
       }else {
         return "It's a tie!";
       }
     }
 
-
-    let playerSelection = // to do //;
-    let computerSelection = computerPlay();
-
-
-    console.log(playRound(playerSelection, computerSelection));
-
+// Write a NEW function called game(). Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+// At this point you should still just be using console.log() to display the results of each round and the winner at the end.
+// Use prompt() to get input from the user. Read the docs here if you need to.
+// Feel free to re-work your previous functions if you need to. Specifically, you might want to change the return value to something more useful.
+// Feel free to create more “helper” functions if you think it would be useful.
 
 
+    function game(){
+      let playerScore = 0;
+      let computerScore = 0;
+
+      for (let i = 0; i < 5 ; i++){
+        let playerSelection = prompt("What do you choose? rock - paper - scissors", "Write down your selection");
+        let computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
+        if (result.indexOf("win") > 0){
+          playerScore = ++playerScore;
+          console.log(playerScore);
+          console.log(computerScore);
+        }
+        else if (result.indexOf("loose") > 1){
+          computerScore = ++computerScore;
+          console.log(playerScore);
+          console.log(computerScore);
+        }
+        else{
+          computerScore = computerScore
+          playerScore = playerScore
+          console.log(playerScore);
+          console.log(computerScore);
+        }
+      }
+
+      if (computerScore > playerScore){
+        console.log("You loose! computer: " + computerScore + ", player: " + playerScore);
+      }
+      else if (computerScore > playerScore) {
+        console.log("You win! computer: " + computerScore + ", player: " + playerScore);
+      }
+      else {
+        console.log("It's a tie! computer: " + computerScore + ", player: " + playerScore);
+      }
+    }
 
 
+
+
+
+
+
+
+
+    game();
 
 
 
