@@ -64,45 +64,41 @@
       let playerScore = 0;
       let computerScore = 0;
 
+      function logScore(){
+        console.log("player score: " + playerScore);
+        console.log("computer score: " + computerScore);
+      }
+
       for (let i = 0; i < 5 ; i++){
         let playerSelection = prompt("What do you choose? rock - paper - scissors", "Write down your selection");
         let computerSelection = computerPlay();
         let result = playRound(playerSelection, computerSelection);
+
         if (result.indexOf("win") > 0){
           playerScore = ++playerScore;
-          console.log(playerScore);
-          console.log(computerScore);
+          logScore()
         }
         else if (result.indexOf("loose") > 1){
           computerScore = ++computerScore;
-          console.log(playerScore);
-          console.log(computerScore);
+          logScore()
         }
         else{
           computerScore = computerScore
           playerScore = playerScore
-          console.log(playerScore);
-          console.log(computerScore);
+          logScore()
         }
       }
 
       if (computerScore > playerScore){
         console.log("You loose! computer: " + computerScore + ", player: " + playerScore);
       }
-      else if (computerScore > playerScore) {
+      else if (computerScore < playerScore) {
         console.log("You win! computer: " + computerScore + ", player: " + playerScore);
       }
       else {
         console.log("It's a tie! computer: " + computerScore + ", player: " + playerScore);
       }
     }
-
-
-
-
-
-
-
 
 
     game();
